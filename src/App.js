@@ -1,9 +1,10 @@
 // import logo from './logo.svg';
 import './App.css';
+import NavBar from './components/NavBar';
 
 // We can also use outer javascript variables in jsx.
 // Example :
-let name = "Iron";
+// let name = "Iron";
 
 
 function App() {
@@ -21,28 +22,34 @@ function App() {
 
 
 <>
-  <nav className="navbar navbar-expand-lg navbar-light">
-    <div className="container-fluid">
-      <a className="navbar-brand" href="/"><u>TEXT WORK</u></a>
-      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-          <li className="nav-item">
-            <a className="nav-link" aria-current="page" href="/">Home</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/">About</a>
-          </li>
-        </ul>
-        <form className="d-flex">
-          <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-          <button className="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-  </nav>
+
+{/* We have removed our navbar code from here and maded a navbar component NavBar.  */}
+
+{/* Now we are going to learn about Props.(PROPERTIES):  We make custom components */}
+{/* Example: If we want to go onto a new page and don;t want to reload the page we can send a custom component for our recent page objects. */}
+
+
+    {/* We are going to make components in our components folder */}
+    {/* Now we can import our NavBar component from our components folder*/}
+    {/* This helps us to make our code look more clean and good we can make custom components for navbar , footer,  sidebar, etc.  */}
+    {/* We have just imported a navbar component */}
+
+    {/* <NavBar/> */}
+
+    {/* But what if we want to use the same custom components in many react apps , with diffrent titles we can use props. */}
+    {/* Now we can add a title which we can change it in every app. */}
+
+    {/* <NavBar title="TEXT CORRECTOR"/> */}
+    
+    {/* We can use those props anywhere in our component file. */}
+
+    {/* We can now also change the about using aboutText  */}
+
+    {/* <NavBar title="TEXT CORRECTOR" aboutText="About Us"/> */}
+    {/* we have now setted our default proptypes for aboutText and title so now if we don't set the string for them we will get the default variables*/}
+
+    {/* See we are getting an error in console for the title. */}
+    <NavBar title="TEXT CORRECTOR" aboutText="About Us"/>
 
 
 </>
@@ -50,4 +57,7 @@ function App() {
   );
 }
 
+
 export default App;
+
+
