@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar';
+import TextForm from './components/TextForm';
 
 // We can also use outer javascript variables in jsx.
 // Example :
@@ -50,6 +51,14 @@ function App() {
 
     {/* See we are getting an error in console for the title. */}
     <NavBar title="TEXT CORRECTOR" aboutText="About Us"/>
+    
+
+    {/* Now we are going to move our react app ahead and now we are going to learn and understand about State and handling events.  */}
+    {/* And we are going to make a new component that is TEXT FORM */}
+    {/* Lets add our text field */}
+    <div className="container">
+      <TextForm heading="Enter your text for analyzing."/>
+    </div>
 
 
 </>
