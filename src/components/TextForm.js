@@ -11,8 +11,16 @@ export default function TextForm(props) {
 
     // Lets create a button click function.
     const handleUpClick = ()=> {
+        let newText = text.toUpperCase();
+        setText(newText);
+    }
+    const handleRemClick = ()=> {
         // console.log("Clicked");
-        let newText = text.toUpperCase().replace("  ", " " ).trim().normalize();
+        let newText;
+        for (let i = 0; i < 10; i++) {
+            newText = text.replace("  ", " " );
+            newText.trim();
+        }
         setText(newText);
     }
     const handleOnChange = (event)=> {
@@ -20,6 +28,7 @@ export default function TextForm(props) {
         setText(event.target.value);
 
     }
+    
 
 
     // Here we added a hook that reflect changes when the state changes,
@@ -34,8 +43,9 @@ export default function TextForm(props) {
         <>
         <div className="container my-3">
             <h2>{props.heading}</h2>
-            <textarea placeholder="YOUR TEXT GOES HERE-" value={text} onChange={handleOnChange} name="Your Text" id="myBox" className="glass" cols="50" rows="10"/>
-            <button className="btn btn-outline-primary" id="corrector" onClick={handleUpClick}>UPPERCASE</button>
+            <textarea placeholder="YOUR TEXT GOES HERE-" value={text} onChange={handleOnChange} name="Your Text" id="myBox" className="form-control my-3" cols="50" rows="5"/>
+            <button className="btn btn-outline-primary mx-2" id="corrector" onClick={handleUpClick}>UPPERCASE</button>
+            <button className="btn btn-outline-primary mx-2" id="corrector" onClick={handleRemClick}>REMOVE SPACES</button>
         </div>
 
         <hr/>
@@ -45,7 +55,10 @@ export default function TextForm(props) {
             <p>{"A normal reader may read this phrase in " +0.008 * text.split(" ").length+" minutes"}</p>
 
             <h2>Text preview</h2>
-            <p><b>{text}</b></p>
+            <p id="box"><b>{text}</b></p>
+
+            <h2 class="binbox">Text preview in binary</h2>
+            <p id="box"><b>{text}</b></p>
         </div>
         
         </>

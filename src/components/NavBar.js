@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 // Now we have just added a props which we used to change the title of our navBar component.
 export default function NavBar(props) {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
             {/* Here we used our props with title. */}
           <a className="navbar-brand" href="/"><u>{props.title}</u></a>
@@ -24,7 +24,7 @@ export default function NavBar(props) {
             </ul>
             <form className="d-flex">
               <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-              <button className="btn btn-outline-success" type="submit">Search</button>
+              <button className="btn btn-outline-info" type="submit">Search</button>
             </form>
           </div>
         </div>
