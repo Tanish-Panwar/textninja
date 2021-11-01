@@ -116,3 +116,9 @@
 .My-container {
   display: flex;
 }
+
+
+.container {
+  padding: 10px;
+  border-radius: 5px;
+}

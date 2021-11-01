@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
+import About from './components/About';
 import NavBar from './components/NavBar';
 import TextForm from './components/TextForm';
 
@@ -56,8 +57,9 @@ function App() {
     {/* Now we are going to move our react app ahead and now we are going to learn and understand about State and handling events.  */}
     {/* And we are going to make a new component that is TEXT FORM */}
     {/* Lets add our text field */}
-    <div className="container">
+    <div className="container my-3">
       <TextForm heading="Enter your text for analyzing."/>
+      {/* <About/> */}
     </div>
 
 
