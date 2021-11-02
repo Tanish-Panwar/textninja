@@ -15,11 +15,13 @@ export default function TextForm(props) {
         setText(newText);
     }
 
+    // Remove extra spaces from text
     const handleExtraSpaces = ()=> {
         let newText = text.split(/[ ]+/);
         setText(newText.join(" "));
     }
 
+    // For adding text in text area
     const handleOnChange = (event)=> {
         // console.log('onChange');
         setText(event.target.value);
@@ -27,18 +29,23 @@ export default function TextForm(props) {
     }
 
 
-    // const handleCapitalize = ()=> {
-    //     let newText = text.charAt(0).toUpperCase() + text.slice(1);
-    //     let n = text.split(".");
-    //     n.forEach(element => {
-    //         element.charAt(0).toUpperCase() + element.slice(1);
-    //     })
-    //     setText(n.join("."));
-    //     // console.log(n);
-    //     // console.log(newT);
-    // }
-    
-
+    // Capitalization of first letter after fullStop.
+    const handleCapitalize = ()=> {
+        var ar = [];
+        var caps = false;
+        ar = text.split(".");
+        for(var i=0; i<ar.length; i++){
+            var temp = ar[0];
+            ar[i] = ar[i].charAt(1).toUpperCase() + ar[i].slice(2);
+            ar[0] = temp.charAt(0).toUpperCase() + temp.slice(1);
+            caps = true;
+        }
+        if(caps === true){
+            setText(ar.join(". "));
+        }else {
+            setText(text);
+        }
+    }
 
     // Here we added a hook that reflect changes when the state changes,
     // This is array destructuring, Text will get the first parameter of useState and setText will get the second parameter.
@@ -50,7 +57,7 @@ export default function TextForm(props) {
 
     const handleCopyClick = ()=> {
         let text = document.getElementById("myBox");
-        var m = navigator.clipboard.writeText(text.value);
+        navigator.clipboard.writeText(text.value);
         text.select();
     }
 
@@ -58,11 +65,19 @@ export default function TextForm(props) {
         <>
         <div className="container my-3">
             <h2>{props.heading}</h2>
-            <textarea placeholder="YOUR TEXT GOES HERE-" value={text} onChange={handleOnChange} name="Your Text" id="myBox" className="form-control my-3" cols="50" rows="5"/>
-            <button className="btn btn-outline-primary mx-2" id="corrector" onClick={handleUpClick}>UPPERCASE</button>
-            <button className="btn btn-outline-primary mx-2" id="corrector" onClick={handleExtraSpaces}>REMOVE SPACES</button>
-            <button className="btn btn-outline-primary mx-2" id="corrector" onClick={handleCopyClick}>COPY TEXT</button>
-            {/* <button className="btn btn-outline-primary mx-2 my-2" id="corrector" onClick={handleCapitalize}>CAPITALIZE</button> */}
+            <textarea placeholder="YOUR TEXT GOES HERE-" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode === 'dark' ? '#16181b': 'white', color: props.mode === 'dark' ? 'white': 'black'}} name="Your Text" id="myBox" className="form-control my-3" cols="50" rows="5"/>
+            {/* <div className="containerSR">
+                <textarea placeholder="Search text" style={{backgroundColor: props.mode === 'dark' ? '#16181b': 'white', color: props.mode === 'dark' ? 'white': 'black'}} className="form-control my-2 mx-2 search-replace" rows="1" cols="2" />
+                <button className="buttonBtn btn btn-outline-danger my-2">SEARCH</button>
+                <textarea placeholder="Replace text" style={{backgroundColor: props.mode === 'dark' ? '#16181b': 'white', color: props.mode === 'dark' ? 'white': 'black'}} className="form-control my-2 mx-2 search-replace" rows="1" cols="2" />
+                <button className="buttonBtn btn btn-outline-danger my-2">REPLACE</button>
+            </div> */}
+            <button className={`btn btn-outline-${props.mode==='light'?'dark':'light'} mx-2`} id="corrector" onClick={handleUpClick}>UPPERCASE</button>
+            <button className={`btn btn-outline-${props.mode==='light'?'dark':'light'} mx-2`} id="corrector" onClick={handleExtraSpaces}>REMOVE SPACES</button>
+            <button className={`btn btn-outline-${props.mode==='light'?'dark':'light'} mx-2`} id="corrector" onClick={handleCopyClick}>COPY TEXT</button>
+            <button className={`btn btn-outline-${props.mode==='light'?'dark':'light'} mx-2 my-2`} id="corrector" onClick={handleCapitalize}>CAPITALIZE</button>
+            {/* <button className={`btn btn-outline-${props.mode==='light'?'dark':'light'} mx-2 my-2`} id="corrector" onClick={handleCapitalize}>SEARCH TEXT</button>
+            <button className={`btn btn-outline-${props.mode==='light'?'dark':'light'} mx-2 my-2`} id="corrector" onClick={handleCapitalize}>REPLACE TEXT</button> */}
         </div>
 
         <hr/>
@@ -74,12 +89,16 @@ export default function TextForm(props) {
             <hr/>
 
         <h2>Text preview</h2>
-        <p id="box"><b>{text}</b></p>
+        <p id="box">{text.length>0 ? text : 'Enter your text to preview'}</p>
 
         </div>
 
 
         {/* Now we are going to make a new componenet About.js and we will unedrstand more about state. */}
+
+        {/* Now we will going to refactor app component and Improve our dark mode. */}
+
+        
         
         </>
     )

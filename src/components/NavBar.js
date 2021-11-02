@@ -1,11 +1,12 @@
 // This is a react function based component.(rfc)
-import React from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 
 // Now we have just added a props which we used to change the title of our navBar component.
 export default function NavBar(props) {
+
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
         <div className="container-fluid">
             {/* Here we used our props with title. */}
           <a className="navbar-brand" href="/"><u>{props.title}</u></a>
@@ -22,10 +23,14 @@ export default function NavBar(props) {
                 <a className="nav-link" href="/">{props.aboutText}</a>
               </li>
             </ul>
-            <form className="d-flex">
+            {/* <form className="d-flex">
               <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
               <button className="btn btn-outline-info" type="submit">Search</button>
-            </form>
+            </form> */}
+            <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark': 'light'}`}>
+              <input className="form-check-input" onClick={props.toggleMode} type="checkbox" id="flexSwitchCheckDefault"/>
+              <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{props.mode==='light'? "Enable dark mode": "Disable dark mode"}</label>
+            </div>
           </div>
         </div>
       </nav>

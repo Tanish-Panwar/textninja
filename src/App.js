@@ -3,6 +3,8 @@ import './App.css';
 import About from './components/About';
 import NavBar from './components/NavBar';
 import TextForm from './components/TextForm';
+import React, { useState } from 'react'
+
 
 // We can also use outer javascript variables in jsx.
 // Example :
@@ -10,6 +12,21 @@ import TextForm from './components/TextForm';
 
 
 function App() {
+
+  const [mode, setMode] = useState('light');
+
+  const toggleMode = () => {
+    if (mode === 'light') {
+      setMode('dark');
+      document.body.style.backgroundColor = '#16181b';
+      document.body.style.color = '#f3f3f3';
+    }else {
+      setMode('light');
+      document.body.style.backgroundColor = '#f3f3f3';
+      document.body.style.color = '#16181b';
+    }
+  }
+
   return (
     // This below written html is jsx it is 90% html but some keywords have been replaced.
 
@@ -51,14 +68,14 @@ function App() {
     {/* we have now setted our default proptypes for aboutText and title so now if we don't set the string for them we will get the default variables*/}
 
     {/* See we are getting an error in console for the title. */}
-    <NavBar title="TEXT CORRECTOR" aboutText="About Us"/>
+    <NavBar title="TEXT NINJA" mode={mode} toggleMode={toggleMode}/>
     
 
     {/* Now we are going to move our react app ahead and now we are going to learn and understand about State and handling events.  */}
     {/* And we are going to make a new component that is TEXT FORM */}
     {/* Lets add our text field */}
     <div className="container my-3">
-      <TextForm heading="Enter your text for analyzing."/>
+      <TextForm heading="Enter your text for analyzing." mode={mode}  />
       {/* <About/> */}
     </div>
 

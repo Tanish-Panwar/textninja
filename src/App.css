@@ -110,9 +110,8 @@
 
 
 #box {
-  width: 50%;
+  width: 90%;
 }
-
 .My-container {
   display: flex;
 }
@@ -121,4 +120,22 @@
 .container {
   padding: 10px;
   border-radius: 5px;
+}
+
+body {
+  background-color: #f3f3f3;
+  color: #16181b;
+}
+
+.containerSR {
+  display: flex;
+}
+.search-replace {
+  display: flex;
+  resize: none;
+}
+
+.buttonBtn {
+  height: 40px;
+  
 }
