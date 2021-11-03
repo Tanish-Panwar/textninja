@@ -13,12 +13,41 @@ export default function TextForm(props) {
     const handleUpClick = ()=> {
         let newText = text.toUpperCase();
         setText(newText);
+        if(text.length > 0){
+            props.showAlert("Converted to Uppercase", "success");
+        }else {
+            props.showAlert("Enter some text first ", "warning");
+        }
+    }
+
+    const handleLowClick = ()=> {
+        let newText = text.toLowerCase();
+        setText(newText);
+        if(text.length > 0){
+            props.showAlert("Converted to Lowercase", "success");
+        }else {
+            props.showAlert("Enter some text first ", "warning");
+        }
+    }
+
+    const handleClearClick = ()=> {
+        setText("");
+        if(text.length > 0){
+            props.showAlert("Cleared text", "success");
+        }else {
+            props.showAlert("Enter some text first ", "warning");
+        }
     }
 
     // Remove extra spaces from text
     const handleExtraSpaces = ()=> {
         let newText = text.split(/[ ]+/);
         setText(newText.join(" "));
+        if(text.length > 0){
+            props.showAlert("Removed all extra spaces", "success");
+        }else {
+            props.showAlert("Enter some text first ", "warning");
+        }
     }
 
     // For adding text in text area
@@ -45,6 +74,12 @@ export default function TextForm(props) {
         }else {
             setText(text);
         }
+
+        if(text.length > 0){
+            props.showAlert("Capitalized the text from full stops.", "success");
+        }else {
+            props.showAlert("Enter some text first ", "warning");
+        }
     }
 
     // Here we added a hook that reflect changes when the state changes,
@@ -56,9 +91,16 @@ export default function TextForm(props) {
     // setText("new Text";) // This is the correct way to change the state
 
     const handleCopyClick = ()=> {
-        let text = document.getElementById("myBox");
-        navigator.clipboard.writeText(text.value);
-        text.select();
+        let tex = document.getElementById("myBox");
+        navigator.clipboard.writeText(tex.value);
+        tex.select();
+
+        if(text.length > 0){
+            props.showAlert("Copied to clipboard", "success");
+        }else {
+            props.showAlert("Enter some text first ", "warning");
+        }
+        
     }
 
     return (
@@ -76,6 +118,8 @@ export default function TextForm(props) {
             <button className={`btn btn-outline-${props.mode==='light'?'dark':'light'} mx-2`} id="corrector" onClick={handleExtraSpaces}>REMOVE SPACES</button>
             <button className={`btn btn-outline-${props.mode==='light'?'dark':'light'} mx-2`} id="corrector" onClick={handleCopyClick}>COPY TEXT</button>
             <button className={`btn btn-outline-${props.mode==='light'?'dark':'light'} mx-2 my-2`} id="corrector" onClick={handleCapitalize}>CAPITALIZE</button>
+            <button className={`btn btn-outline-${props.mode==='light'?'dark':'light'} mx-2 my-2`} id="corrector" onClick={handleLowClick}>LOWERCASE</button>
+            <button className={`btn btn-outline-${props.mode==='light'?'dark':'light'} mx-2 my-2`} id="corrector" onClick={handleClearClick}>CLEAR TEXT</button>
             {/* <button className={`btn btn-outline-${props.mode==='light'?'dark':'light'} mx-2 my-2`} id="corrector" onClick={handleCapitalize}>SEARCH TEXT</button>
             <button className={`btn btn-outline-${props.mode==='light'?'dark':'light'} mx-2 my-2`} id="corrector" onClick={handleCapitalize}>REPLACE TEXT</button> */}
         </div>

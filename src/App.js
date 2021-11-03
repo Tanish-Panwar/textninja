@@ -4,6 +4,7 @@ import About from './components/About';
 import NavBar from './components/NavBar';
 import TextForm from './components/TextForm';
 import React, { useState } from 'react'
+import Alert from './components/Alert';
 
 
 // We can also use outer javascript variables in jsx.
@@ -14,16 +15,32 @@ import React, { useState } from 'react'
 function App() {
 
   const [mode, setMode] = useState('light');
+  const [alert, setalert] = useState(null);
+
+  const showAlert = (message, type)=> {
+    setalert({
+      msg: message,
+      type: type
+    })
+
+    setTimeout(()=> {
+      setalert(null);
+    }, 1500);
+  }
+
 
   const toggleMode = () => {
     if (mode === 'light') {
       setMode('dark');
       document.body.style.backgroundColor = '#16181b';
       document.body.style.color = '#f3f3f3';
+      // showAlert("Dark mode has been enabled", "success");
     }else {
       setMode('light');
       document.body.style.backgroundColor = '#f3f3f3';
       document.body.style.color = '#16181b';
+      // showAlert("Light mode has been enabled", "success");
+
     }
   }
 
@@ -69,15 +86,19 @@ function App() {
 
     {/* See we are getting an error in console for the title. */}
     <NavBar title="TEXT NINJA" mode={mode} toggleMode={toggleMode}/>
+    <Alert alert={alert}/>
     
 
     {/* Now we are going to move our react app ahead and now we are going to learn and understand about State and handling events.  */}
     {/* And we are going to make a new component that is TEXT FORM */}
     {/* Lets add our text field */}
     <div className="container my-3">
-      <TextForm heading="Enter your text for analyzing." mode={mode}  />
+      <TextForm showAlert={showAlert} heading="Enter your text for analyzing." mode={mode}   />
       {/* <About/> */}
     </div>
+
+
+    {/* Now we will make a new component which is alert. */}
 
 
     
