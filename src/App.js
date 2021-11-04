@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
-import About from './components/About';
+// import About from './components/About';
 import NavBar from './components/NavBar';
 import TextForm from './components/TextForm';
 import React, { useState } from 'react'
@@ -41,6 +41,36 @@ function App() {
       document.body.style.color = '#16181b';
       // showAlert("Light mode has been enabled", "success");
 
+    }
+  }
+
+  const changeThemeR = () => {
+    if(mode === 'light'){
+      document.body.style.backgroundColor = '#ff8585';
+      document.body.style.color = "#000";
+    }else {
+      document.body.style.backgroundColor = '#2e0000';
+      document.body.style.color = "#fff";
+    }
+  }
+
+  const changeThemeG = () => {
+    if(mode === 'light'){
+      document.body.style.backgroundColor = '#8affa7';
+      document.body.style.color = "#000";
+    }else {
+      document.body.style.backgroundColor = '#00290a';
+      document.body.style.color = "#fff";
+    }
+  }
+
+  const changeThemeB = () => {
+    if(mode === 'light'){
+      document.body.style.backgroundColor = '#94dbff';
+      document.body.style.color = "#000";
+    }else {
+      document.body.style.backgroundColor = '#001f2e';
+      document.body.style.color = "#fff";
     }
   }
 
@@ -85,7 +115,7 @@ function App() {
     {/* we have now setted our default proptypes for aboutText and title so now if we don't set the string for them we will get the default variables*/}
 
     {/* See we are getting an error in console for the title. */}
-    <NavBar title="TEXT NINJA" mode={mode} toggleMode={toggleMode}/>
+    <NavBar title="TEXT NINJA" mode={mode} toggleMode={toggleMode}    changeThemeR={changeThemeR}    changeThemeG={changeThemeG}    changeThemeB={changeThemeB}/>
     <Alert alert={alert}/>
     
 

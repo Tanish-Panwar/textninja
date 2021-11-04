@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 export default function NavBar(props) {
 
     return (
-        <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
+        <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`} >
         <div className="container-fluid">
             {/* Here we used our props with title. */}
           <a className="navbar-brand" href="/"><u>{props.title}</u></a>
@@ -27,6 +27,12 @@ export default function NavBar(props) {
               <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
               <button className="btn btn-outline-info" type="submit">Search</button>
             </form> */}
+            <div className="ColorPickerContainer">
+                <label htmlFor="colorPicker">Color Theme</label>
+                <button onClick={props.changeThemeR} className="colorPicker" id="Red">R</button>
+                <button onClick={props.changeThemeG} className="colorPicker" id="Green">G</button>
+                <button onClick={props.changeThemeB} className="colorPicker" id="Blue">B</button>
+            </div>
             <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark': 'light'}`}>
               <input className="form-check-input" onClick={props.toggleMode} type="checkbox" id="flexSwitchCheckDefault"/>
               <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{props.mode==='light'? "Enable dark mode": "Disable dark mode"}</label>
@@ -37,7 +43,7 @@ export default function NavBar(props) {
     )
 }
 
-
+export var navColor = document.getElementById('navColor');
 // This is a object proptype that takes string with the name of title and aboutText
 
 // This is also used for double checking that we need to use that datatype in that case.

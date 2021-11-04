@@ -153,3 +153,27 @@ body {
   text-align: center;
   align-items: center;
 }
+
+.colorPicker {
+  margin: 10px;
+  border: 0px solid #000;
+  outline: none;
+}
+
+#Red {
+  background-color: red;
+}
+
+#Green {
+  background-color: greenyellow;
+}
+
+#Blue {
+  background-color: blue;
+  color: white;
+}
+
+.ColorPickerContainer {
+  display: flex;
+  align-items: center;
+}
