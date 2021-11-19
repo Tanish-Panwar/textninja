@@ -1,6 +1,7 @@
 // This is a react function based component.(rfc)
-import React, {useState} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom';
 
 // Now we have just added a props which we used to change the title of our navBar component.
 export default function NavBar(props) {
@@ -9,18 +10,18 @@ export default function NavBar(props) {
         <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`} >
         <div className="container-fluid">
             {/* Here we used our props with title. */}
-          <a className="navbar-brand" href="/"><u>{props.title}</u></a>
+          <Link className="navbar-brand" to="/"><u>{props.title}</u></Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="/">Home</a>
+                <Link className="nav-link" aria-current="page" to="/">Home</Link>
               </li>
               <li className="nav-item">
                   {/* We can also change the about with our props */}
-                <a className="nav-link" href="/">{props.aboutText}</a>
+                <Link className="nav-link" to="/about">{props.aboutText}</Link>
               </li>
             </ul>
             {/* <form className="d-flex">

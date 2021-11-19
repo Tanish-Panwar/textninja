@@ -1,11 +1,15 @@
 // import logo from './logo.svg';
 import './App.css';
-// import About from './components/About';
+import About from './components/About';
 import NavBar from './components/NavBar';
 import TextForm from './components/TextForm';
 import React, { useState } from 'react'
 import Alert from './components/Alert';
-
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes
+} from "react-router-dom";
 
 // We can also use outer javascript variables in jsx.
 // Example :
@@ -46,10 +50,10 @@ function App() {
 
   const changeThemeR = () => {
     if(mode === 'light'){
-      document.body.style.backgroundColor = '#ff8585';
+      document.body.style.backgroundColor = '#ffaeae';
       document.body.style.color = "#000";
     }else {
-      document.body.style.backgroundColor = '#2e0000';
+      document.body.style.backgroundColor = '#230000';
       document.body.style.color = "#fff";
     }
   }
@@ -87,54 +91,75 @@ function App() {
     // </>
 
 
-<>
+// /* <> */
 
-{/* We have removed our navbar code from here and maded a navbar component NavBar.  */}
+// {/* We have removed our navbar code from here and maded a navbar component NavBar.  */}
 
-{/* Now we are going to learn about Props.(PROPERTIES):  We make custom components */}
-{/* Example: If we want to go onto a new page and don;t want to reload the page we can send a custom component for our recent page objects. */}
+// {/* Now we are going to learn about Props.(PROPERTIES):  We make custom components */}
+// {/* Example: If we want to go onto a new page and don;t want to reload the page we can send a custom component for our recent page objects. */}
 
 
-    {/* We are going to make components in our components folder */}
-    {/* Now we can import our NavBar component from our components folder*/}
-    {/* This helps us to make our code look more clean and good we can make custom components for navbar , footer,  sidebar, etc.  */}
-    {/* We have just imported a navbar component */}
+//     {/* We are going to make components in our components folder */}
+//     {/* Now we can import our NavBar component from our components folder*/}
+//     {/* This helps us to make our code look more clean and good we can make custom components for navbar , footer,  sidebar, etc.  */}
+//     {/* We have just imported a navbar component */}
 
-    {/* <NavBar/> */}
+//     {/* <NavBar/> */}
 
-    {/* But what if we want to use the same custom components in many react apps , with diffrent titles we can use props. */}
-    {/* Now we can add a title which we can change it in every app. */}
+//     {/* But what if we want to use the same custom components in many react apps , with diffrent titles we can use props. */}
+//     {/* Now we can add a title which we can change it in every app. */}
 
-    {/* <NavBar title="TEXT CORRECTOR"/> */}
+//     {/* <NavBar title="TEXT CORRECTOR"/> */}
     
-    {/* We can use those props anywhere in our component file. */}
+//     {/* We can use those props anywhere in our component file. */}
 
-    {/* We can now also change the about using aboutText  */}
+//     {/* We can now also change the about using aboutText  */}
 
-    {/* <NavBar title="TEXT CORRECTOR" aboutText="About Us"/> */}
-    {/* we have now setted our default proptypes for aboutText and title so now if we don't set the string for them we will get the default variables*/}
+//     {/* <NavBar title="TEXT CORRECTOR" aboutText="About Us"/> */}
+//     {/* we have now setted our default proptypes for aboutText and title so now if we don't set the string for them we will get the default variables*/}
 
-    {/* See we are getting an error in console for the title. */}
+//     {/* See we are getting an error in console for the title. */}
+//     {/* <NavBar title="TEXT NINJA" mode={mode} toggleMode={toggleMode}    changeThemeR={changeThemeR}    changeThemeG={changeThemeG}    changeThemeB={changeThemeB}/>
+//     <Alert alert={alert}/> */}
+    
+
+//     {/* Now we are going to move our react app ahead and now we are going to learn and understand about State and handling events.  */}
+//     {/* And we are going to make a new component that is TEXT FORM */}
+//     {/* Lets add our text field */}
+//     {/* <div className="container my-3">
+//       <TextForm showAlert={showAlert} heading="Enter your text for analyzing." mode={mode}   />
+//       <About/>
+//     </div> */}
+
+
+//     {/* Now we will make a new component which is alert. */}
+
+//     {/* Now we are going to use Router in react: Router is used to prevent a page from loading , */}
+//     {/* A Normal website loads everytime when we traverse to another page. */}
+//     {/* But If we use a router and then we load a page the whole page won't load only the particular contents of a page will load. */}
+
+<>
+<Router>
     <NavBar title="TEXT NINJA" mode={mode} toggleMode={toggleMode}    changeThemeR={changeThemeR}    changeThemeG={changeThemeG}    changeThemeB={changeThemeB}/>
     <Alert alert={alert}/>
-    
-
-    {/* Now we are going to move our react app ahead and now we are going to learn and understand about State and handling events.  */}
-    {/* And we are going to make a new component that is TEXT FORM */}
-    {/* Lets add our text field */}
     <div className="container my-3">
-      <TextForm showAlert={showAlert} heading="Enter your text for analyzing." mode={mode}   />
-      {/* <About/> */}
+    <Routes>
+        <Route exact path="/about" element={<About/>}/>
+        <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter your text for analyzing." mode={mode}   />} />
+    </Routes>
     </div>
-
-
-    {/* Now we will make a new component which is alert. */}
-
-
-    
-
-
+</Router>
 </>
+
+// {/* <Route exact path='/' element={<PrivateRoute/>}>
+// <Route exact path='/' element={<Home/>}/>
+// </Route>
+// <Route exact path='/register' element={<Register/>}/>
+// <Route exact path='/login' element={<Login/>}/> */}
+
+
+
+// </>
 
   );
 }

@@ -109,6 +109,18 @@
 } */
 
 
+
+.glass{
+  /* resize: none; */
+  background: rgba(255, 255, 255, 0.377);
+  outline: none;
+  box-shadow: 0 8px 32px 0 rgba(3, 3, 5, 0.37);
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  /* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
+}
+/* #ffffff5e */
+
 #box {
   width: 90%;
 }
@@ -162,14 +174,18 @@ body {
 }
 
 #Red {
+  border-radius: 4px;
   background-color: red;
+  color: white;
 }
 
 #Green {
+  border-radius: 4px;
   background-color: greenyellow;
 }
 
 #Blue {
+  border-radius: 4px;
   background-color: blue;
   color: white;
 }
@@ -179,3 +195,7 @@ body {
   align-items: center;
 }
 
+
+.containerAbout {
+  border: 1px solid;
+}

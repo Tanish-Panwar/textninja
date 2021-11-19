@@ -93,8 +93,8 @@ export default function TextForm(props) {
     const handleCopyClick = ()=> {
         let tex = document.getElementById("myBox");
         navigator.clipboard.writeText(tex.value);
-        tex.select();
-
+        // tex.select();
+        // document.getSelection().removeAllRanges();
         if(text.length > 0){
             props.showAlert("Copied to clipboard", "success");
         }else {
@@ -107,16 +107,16 @@ export default function TextForm(props) {
         <>
         <div className="container my-3">
             <h2>{props.heading}</h2>
-            <textarea placeholder="YOUR TEXT GOES HERE-" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode === 'dark' ? '#16181b': 'white', color: props.mode === 'dark' ? 'white': 'black'}} name="Your Text" id="myBox" className="form-control my-3" cols="50" rows="5"/>
+            <textarea placeholder="YOUR TEXT GOES HERE-" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode === 'dark' ? '#16181b70': '#ffffff75', color: props.mode === 'dark' ? 'white': 'black'}} name="Your Text" id="myBox" className="form-control my-3 glass" cols="50" rows="5"/>
             {/* <div className="containerSR">
                 <textarea placeholder="Search text" style={{backgroundColor: props.mode === 'dark' ? '#16181b': 'white', color: props.mode === 'dark' ? 'white': 'black'}} className="form-control my-2 mx-2 search-replace" rows="1" cols="2" />
                 <button className="buttonBtn btn btn-outline-danger my-2">SEARCH</button>
                 <textarea placeholder="Replace text" style={{backgroundColor: props.mode === 'dark' ? '#16181b': 'white', color: props.mode === 'dark' ? 'white': 'black'}} className="form-control my-2 mx-2 search-replace" rows="1" cols="2" />
                 <button className="buttonBtn btn btn-outline-danger my-2">REPLACE</button>
             </div> */}
-            <button className={`btn btn-outline-${props.mode==='light'?'dark':'light'} mx-2`} id="corrector" onClick={handleUpClick}>UPPERCASE</button>
-            <button className={`btn btn-outline-${props.mode==='light'?'dark':'light'} mx-2`} id="corrector" onClick={handleExtraSpaces}>REMOVE SPACES</button>
-            <button className={`btn btn-outline-${props.mode==='light'?'dark':'light'} mx-2`} id="corrector" onClick={handleCopyClick}>COPY TEXT</button>
+            <button className={`btn btn-outline-${props.mode==='light'?'dark':'light'} mx-2 my-2`} id="corrector" onClick={handleUpClick}>UPPERCASE</button>
+            <button className={`btn btn-outline-${props.mode==='light'?'dark':'light'} mx-2 my-2`} id="corrector" onClick={handleExtraSpaces}>REMOVE SPACES</button>
+            <button className={`btn btn-outline-${props.mode==='light'?'dark':'light'} mx-2 my-2`} id="corrector" onClick={handleCopyClick}>COPY TEXT</button>
             <button className={`btn btn-outline-${props.mode==='light'?'dark':'light'} mx-2 my-2`} id="corrector" onClick={handleCapitalize}>CAPITALIZE</button>
             <button className={`btn btn-outline-${props.mode==='light'?'dark':'light'} mx-2 my-2`} id="corrector" onClick={handleLowClick}>LOWERCASE</button>
             <button className={`btn btn-outline-${props.mode==='light'?'dark':'light'} mx-2 my-2`} id="corrector" onClick={handleClearClick}>CLEAR TEXT</button>
@@ -125,10 +125,12 @@ export default function TextForm(props) {
         </div>
 
         <hr/>
-        <div className="container glass my-3">
+        <div className="container my-3">
             <h2>Your Text Summary</h2>
-            <p>{"Your phrase has "+text.length+" letters and "+ text.split(" ").length+" words"}</p>
-            <p>{"A normal reader may read this phrase in " +0.008 * text.split(" ").length+" minutes"}</p>
+            <p><u>Your phrase has {text.split(" ").filter((element)=>{return element.length!==0}).length} Words and {text.length} Characters</u></p>
+            {/* <p><u>Letters: {text.length}</u></p> */}
+            {/* <p><u>Words: {text===""? 0 : text.split(" ").length}</u></p> */}
+            <p><u>{"A normal reader may read this phrase in " +0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length+" minutes"}</u></p>
 
             <hr/>
 
