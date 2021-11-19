@@ -93,8 +93,6 @@ export default function TextForm(props) {
     const handleCopyClick = ()=> {
         let tex = document.getElementById("myBox");
         navigator.clipboard.writeText(tex.value);
-        // tex.select();
-        // document.getSelection().removeAllRanges();
         if(text.length > 0){
             props.showAlert("Copied to clipboard", "success");
         }else {
@@ -127,10 +125,10 @@ export default function TextForm(props) {
         <hr/>
         <div className="container my-3">
             <h2>Your Text Summary</h2>
-            <p><u>Your phrase has {text.split(" ").filter((element)=>{return element.length!==0}).length} Words and {text.length} Characters</u></p>
+            <p><u>Your phrase has {text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Words and {text.length} Characters</u></p>
             {/* <p><u>Letters: {text.length}</u></p> */}
             {/* <p><u>Words: {text===""? 0 : text.split(" ").length}</u></p> */}
-            <p><u>{"A normal reader may read this phrase in " +0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length+" minutes"}</u></p>
+            <p><u>{"A normal reader may read this phrase in " +0.008 * text.split(/\s+/).filter((element)=>{return element.length!==0}).length+" minutes"}</u></p>
 
             <hr/>
 
