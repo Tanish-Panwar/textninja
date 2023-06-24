@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/textninja/static/css/main.d027a65f.chunk.css",
-    "main.js": "/textninja/static/js/main.402af10c.chunk.js",
-    "main.js.map": "/textninja/static/js/main.402af10c.chunk.js.map",
+    "main.js": "/textninja/static/js/main.941965f7.chunk.js",
+    "main.js.map": "/textninja/static/js/main.941965f7.chunk.js.map",
     "runtime-main.js": "/textninja/static/js/runtime-main.4033c682.js",
     "runtime-main.js.map": "/textninja/static/js/runtime-main.4033c682.js.map",
     "static/js/2.47f57846.chunk.js": "/textninja/static/js/2.47f57846.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.4033c682.js",
     "static/js/2.47f57846.chunk.js",
     "static/css/main.d027a65f.chunk.css",
-    "static/js/main.402af10c.chunk.js"
+    "static/js/main.941965f7.chunk.js"
   ]
 }
