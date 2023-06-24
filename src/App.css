@@ -155,11 +155,12 @@ body {
 
 .a {
   display: flex;
-  height: 10px;
+  height: 20px;
   text-align: center;
   margin-top: 0px;
   margin: 0px;
-  padding: 10px;
+  padding: 20px;
+  text-align: center;
   position: absolute;
   text-align: center;
   align-content: center;

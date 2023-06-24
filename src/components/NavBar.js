@@ -29,7 +29,7 @@ export default function NavBar(props) {
               <button className="btn btn-outline-info" type="submit">Search</button>
             </form> */}
             <div className="ColorPickerContainer">
-                <label htmlFor="colorPicker">Color Theme</label>
+                <label>Color Theme</label>
                 <button onClick={props.changeThemeR} className="colorPicker" id="Red">R</button>
                 <button onClick={props.changeThemeG} className="colorPicker" id="Green">G</button>
                 <button onClick={props.changeThemeB} className="colorPicker" id="Blue">B</button>
