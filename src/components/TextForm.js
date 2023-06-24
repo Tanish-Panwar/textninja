@@ -143,7 +143,7 @@ export default function TextForm(props) {
                                     <input value={toRepWith} onChange={(e) => setToRepWith(e.target.value)} type="email" className="form-control" placeholder='Enter word to replace with' />
                                 </div>
                                 <div className="modal-footer">
-                                    <button type="button" className="btn btn-primary" onClick={handleReplaceWord}>REPLACE</button>
+                                    <button type="button" className={`btn btn-outline-${props.mode === 'light' ? 'dark' : 'light'} mx-2 my-2`} onClick={handleReplaceWord}>REPLACE</button>
                                 </div>
                             </div>
                         </div>
