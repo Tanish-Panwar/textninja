@@ -17,13 +17,6 @@ import {
 
 
 function App() {
-  if(window.location.href.endsWith('/') || window.location.href.endsWith('/about')) {
-    console.log("OK");
-  }
-  else {
-    window.location.href = '/';
-  }
-
   const [mode, setMode] = useState('light');
   const [alert, setalert] = useState(null);
 
