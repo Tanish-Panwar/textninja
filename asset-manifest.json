@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/textninja.git/static/css/main.d027a65f.chunk.css",
+    "main.js": "/textninja.git/static/js/main.494aa861.chunk.js",
+    "main.js.map": "/textninja.git/static/js/main.494aa861.chunk.js.map",
+    "runtime-main.js": "/textninja.git/static/js/runtime-main.c76b8853.js",
+    "runtime-main.js.map": "/textninja.git/static/js/runtime-main.c76b8853.js.map",
+    "static/js/2.47f57846.chunk.js": "/textninja.git/static/js/2.47f57846.chunk.js",
+    "static/js/2.47f57846.chunk.js.map": "/textninja.git/static/js/2.47f57846.chunk.js.map",
+    "static/js/3.63402147.chunk.js": "/textninja.git/static/js/3.63402147.chunk.js",
+    "static/js/3.63402147.chunk.js.map": "/textninja.git/static/js/3.63402147.chunk.js.map",
+    "index.html": "/textninja.git/index.html",
+    "static/css/main.d027a65f.chunk.css.map": "/textninja.git/static/css/main.d027a65f.chunk.css.map",
+    "static/js/2.47f57846.chunk.js.LICENSE.txt": "/textninja.git/static/js/2.47f57846.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c76b8853.js",
+    "static/js/2.47f57846.chunk.js",
+    "static/css/main.d027a65f.chunk.css",
+    "static/js/main.494aa861.chunk.js"
+  ]
+}
