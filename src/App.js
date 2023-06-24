@@ -140,7 +140,7 @@ function App() {
 //     {/* But If we use a router and then we load a page the whole page won't load only the particular contents of a page will load. */}
 
 <>
-<Router>
+<Router basename='https://tanish-panwar.github.io/textninja/'>
     <NavBar title="TEXT NINJA" mode={mode} toggleMode={toggleMode}    changeThemeR={changeThemeR}    changeThemeG={changeThemeG}    changeThemeB={changeThemeB}/>
     <Alert alert={alert}/>
     <div className="container my-3">
