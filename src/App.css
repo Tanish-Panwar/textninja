@@ -123,6 +123,7 @@
 
 #box {
   width: 90%;
+  word-wrap: break-word;
 }
 .My-container {
   display: flex;
